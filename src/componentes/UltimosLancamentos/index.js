@@ -1,4 +1,7 @@
 import { livros } from './dadosUltimosLancamentos'
+import { Titulo } from '../Titulo'
+import CardRecomenda from '../CardRecomenda'
+import livroRecomendado from '../../img/livro2.png'
 import styled from "styled-components"
 
 
@@ -9,15 +12,7 @@ const UltimosLancamentosConteiner = styled.section`
      flex-direction: column;
 `
 
-const TituloLancamentos = styled.h2`
-     width: 100%;
-     padding: 30px 0;
-     background-color: #FFF;
-     color: #EB9B00;
-     font-size: 36px;
-     text-align: center;
-     margin: 0;
-`
+
 
 const NovosLivrosConteiner = styled.div`
      margin-top: 30px;
@@ -33,12 +28,22 @@ const NovosLivrosConteiner = styled.div`
 function UltimosLancamentos(){
      return (
           <UltimosLancamentosConteiner>
-               <TituloLancamentos>Ulimos Lançamentos</TituloLancamentos>
+               <Titulo 
+                    cor="#EB9B00" 
+                    tamanhoFonte="36px" 
+               >ÚLTIMOS LANÇAMENTOS</Titulo>
+
                <NovosLivrosConteiner>
                     {livros.map(livro => (
                          <img src={livro.src}></img>
                     ))}
                </NovosLivrosConteiner>
+               <CardRecomenda
+                    titulo="Talvez voce se interesse por"
+                    subtitulo="Victor e a Doideira"
+                    descricao="Embarcando em uma aventura na doideira"
+                    img={livroRecomendado}
+               />
           </UltimosLancamentosConteiner>
      )
 }
